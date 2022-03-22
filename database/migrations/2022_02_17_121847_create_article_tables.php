@@ -13,23 +13,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('article_tables', function (Blueprint $table) {
+        Schema::create('articles', function (Blueprint $table) {
             $table->id();
+            $table->string('applicationID');
+            $table->string('description');
+            $table->string('type');
+            $table->string('contactMobileNo');
+            $table->string('firstName');
+            $table->string('lastName');
+            $table->string('contactEmailId');
             $table->string('probCategory');
-            $table->string('source');
             $table->string('probType');
             $table->string('probItem');
             $table->string('probSummary');
-            $table->string('source_AppId');
-            $table->string('contactEmailId');
-            $table->string('contactMobileNo');
-            $table->string('type');
-            $table->string('description');
-            $table->string('clientId');
-            $table->string('lastName');
-            $table->string('firstName');
-            $table->timestamps();
-        });
+            $table->timestamp('submitted_at');
+           
+        
+        }); 
     }
 
     /**
@@ -39,6 +39,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('article_tables');
+        Schema::dropIfExists('articles');
     }
 };
